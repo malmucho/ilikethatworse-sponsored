@@ -17,22 +17,41 @@
       margin-bottom: 5px;
       font-weight: bold;
     }
-    p.prompt {
+    .prompt {
       font-size: 1.2rem;
-      margin-bottom: 30px;
+      margin: 30px auto;
+      height: 1.5em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid orange;
+      animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+    .highlight-red {
+      color: red;
+      font-weight: bold;
     }
     .matchup {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
     }
     .option {
+      flex: 1 1 40%;
       padding: 16px 24px;
       border: 2px solid #000;
       border-radius: 12px;
       font-size: 1rem;
       max-width: 300px;
-      margin: 0 auto;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -47,17 +66,18 @@
   </style>
 </head>
 <body>
-  <h1>Sponsored Mayhem</h1>
-  <p class="prompt">Which AD do you like worse?</p>
+  <h1>Sponsored</h1>
+  <p class="prompt">Which <span class="highlight-red">AD</span> do you like worse?</p>
 
   <div class="matchup">
-    <div id="option1" class="option">Loading...</div>
-    <div id="option2" class="option">Loading...</div>
+    <div id="option1" class="option" onclick="openAd()">Loading...</div>
+    <div id="option2" class="option" onclick="openAd()">Loading...</div>
   </div>
 
   <div class="ad-container">
-    <p style="margin-top: 40px;">Ads appear here 👇</p>
-    <div style="width:100%; height:100px; border:1px solid #ccc;">[AdSense Ad Slot]</div>
+    <p style="margin-top: 40px;">-Ad-</p>
+    <div style="width:100%; height:100px; border:1px solid #ccc;"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5073803117143362"
+     crossorigin="anonymous"></script></div>
   </div>
 
   <script>
@@ -97,6 +117,10 @@
     function getRandomOptions(arr) {
       const shuffled = arr.sort(() => 0.5 - Math.random());
       return [shuffled[0], shuffled[1]];
+    }
+
+    function openAd() {
+      window.open("https://ilikethatworse.com", "_blank");
     }
 
     const [option1, option2] = getRandomOptions(adOptions);
