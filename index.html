@@ -6,31 +6,40 @@
   <title>Sponsored Mayhem - ilikethatworse</title>
   <style>
     body {
-      background-color: #fff;
-      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       text-align: center;
       padding: 20px;
-      color: #000;
+      color: #111;
     }
     h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    p.prompt {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
     }
     .matchup {
       display: flex;
-      justify-content: space-around;
-      margin: 40px 0;
+      flex-direction: column;
+      gap: 20px;
     }
     .option {
-      width: 45%;
-      padding: 20px;
+      padding: 16px 24px;
       border: 2px solid #000;
-      border-radius: 10px;
-      font-size: 1.2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      max-width: 300px;
+      margin: 0 auto;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
     .option:hover {
-      background-color: #f8f8f8;
+      background-color: #ffeaea;
+      color: #d00;
+      border-color: #d00;
     }
     .ad-container {
       margin-top: 30px;
@@ -39,22 +48,60 @@
 </head>
 <body>
   <h1>Sponsored Mayhem</h1>
-  <p>Which of these would you like worse?</p>
+  <p class="prompt">Which AD do you like worse?</p>
 
   <div class="matchup">
-    <div class="option">A pineapple-shaped neck massager</div>
-    <div class="option">A medieval air fryer</div>
+    <div id="option1" class="option">Loading...</div>
+    <div id="option2" class="option">Loading...</div>
   </div>
 
   <div class="ad-container">
-    <!-- Google AdSense Placeholder -->
-    <p>Ads appear here 👇</p>
-    <div style="width:100%; height:100px; border:1px solid #ccc;"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5073803117143362"
-     crossorigin="anonymous"></script></div>
+    <p style="margin-top: 40px;">Ads appear here 👇</p>
+    <div style="width:100%; height:100px; border:1px solid #ccc;">[AdSense Ad Slot]</div>
   </div>
 
-  <footer style="margin-top: 40px;">
-    <p style="font-size: 0.8rem;">This page is part of <strong>ilikethatworse</strong>. Ads may generate revenue to support development.</p>
-  </footer>
+  <script>
+    const adOptions = [
+      "An AI-generated toothpaste subscription",
+      "A fitness app that only yells at you",
+      "A dating site for penguin lovers",
+      "Glow-in-the-dark beard oil",
+      "A crypto course from a 12-year-old",
+      "Socks that track your steps and your emotions",
+      "A $300 motivational sticker pack",
+      "Sponsored water — now with fewer molecules",
+      "VR headset that only plays Minesweeper",
+      "Underwear with Bluetooth",
+      "A time-traveling planner (doesn’t work)",
+      "Digital hugs as NFTs",
+      "Smart shoes that critique your walk",
+      "A subscription box for left-handed forks",
+      "AI voiceover of your dreams — literally",
+      "Meditation app with jump scares",
+      "Toilet paper scented candles",
+      "A candle that smells like productivity",
+      "Chewing gum that gives financial advice",
+      "Coffee that texts your boss when you're late",
+      "Organic fidget spinners",
+      "A pillow that tweets your sleep stats",
+      "The Uber for hamster wheels",
+      "A mirror that roasts your outfit",
+      "Tattoo ink that fades with your confidence",
+      "Shampoo with inspirational quotes",
+      "Digital plants that shame you if they die",
+      "Subscription for motivational post-its",
+      "Vitamin water for your keyboard",
+      "Pre-owned screen protectors"
+    ];
+
+    function getRandomOptions(arr) {
+      const shuffled = arr.sort(() => 0.5 - Math.random());
+      return [shuffled[0], shuffled[1]];
+    }
+
+    const [option1, option2] = getRandomOptions(adOptions);
+    document.getElementById("option1").textContent = option1;
+    document.getElementById("option2").textContent = option2;
+  </script>
 </body>
 </html>
