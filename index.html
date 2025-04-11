@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Play ilikethatworse — a chaotic decision-making mobile game. Compare weird options, laugh, vote, and share. Now available on the App Store.">
   <meta name="keywords" content="ilikethatworse, worst choice game, mobile game, would you rather, app store, ios games, funny app, sponsored mayhem, indie game">
-  <title>Sponsored</title>
+  <title>ilikethatworse - Sponsored Ads</title>
   <style>
     body {
       background-color: #ffffff;
@@ -96,57 +96,57 @@
   </footer>
 
   <script>
-    const adOptions = [
-      "An AI-generated toothpaste subscription",
-      "A fitness app that only yells at you",
-      "A dating site for penguin lovers",
-      "Glow-in-the-dark beard oil",
-      "A crypto course from a 12-year-old",
-      "Socks that track your steps and your emotions",
-      "A $300 motivational sticker pack",
-      "Sponsored water — now with fewer molecules",
-      "VR headset that only plays Minesweeper",
-      "Underwear with Bluetooth",
-      "A time-traveling planner (doesn’t work)",
-      "Digital hugs as NFTs",
-      "Smart shoes that critique your walk",
-      "A subscription box for left-handed forks",
-      "AI voiceover of your dreams — literally",
-      "Meditation app with jump scares",
-      "Toilet paper scented candles",
-      "A candle that smells like productivity",
-      "Chewing gum that gives financial advice",
-      "Coffee that texts your boss when you're late",
-      "Organic fidget spinners",
-      "A pillow that tweets your sleep stats",
-      "The Uber for hamster wheels",
-      "A mirror that roasts your outfit",
-      "Tattoo ink that fades with your confidence",
-      "Shampoo with inspirational quotes",
-      "Digital plants that shame you if they die",
-      "Subscription for motivational post-its",
-      "Vitamin water for your keyboard",
-      "Pre-owned screen protectors"
-    ];
+  const adOptions = [
+    "An AI-generated toothpaste subscription",
+    "A fitness app that only yells at you",
+    "A dating site for penguin lovers",
+    "Glow-in-the-dark beard oil",
+    "A crypto course from a 12-year-old",
+    "Socks that track your steps and your emotions",
+    "A $300 motivational sticker pack",
+    "Sponsored water — now with fewer molecules",
+    "VR headset that only plays Minesweeper",
+    "Underwear with Bluetooth",
+    "A time-traveling planner (doesn’t work)",
+    "Digital hugs as NFTs",
+    "Smart shoes that critique your walk",
+    "A subscription box for left-handed forks",
+    "AI voiceover of your dreams — literally",
+    "Meditation app with jump scares",
+    "Toilet paper scented candles",
+    "A candle that smells like productivity",
+    "Chewing gum that gives financial advice",
+    "Coffee that texts your boss when you're late",
+    "Organic fidget spinners",
+    "A pillow that tweets your sleep stats",
+    "The Uber for hamster wheels",
+    "A mirror that roasts your outfit",
+    "Tattoo ink that fades with your confidence",
+    "Shampoo with inspirational quotes",
+    "Digital plants that shame you if they die",
+    "Subscription for motivational post-its",
+    "Vitamin water for your keyboard",
+    "Pre-owned screen protectors"
+  ];
 
-    let currentOptions = [];
+  function slugify(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
 
-    function getRandomOptions(arr) {
-      const shuffled = arr.sort(() => 0.5 - Math.random());
-      return [shuffled[0], shuffled[1]];
-    }
-    
-    function slugify(text) {
-      return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    }
+  function openAd(index) {
     const selected = slugify(document.getElementById("option" + (index + 1)).textContent);
     window.location.href = "./" + selected + ".html";
-    }
-    
-    // Populate options on load
-    currentOptions = getRandomOptions([...adOptions]);
-    document.getElementById("option1").textContent = currentOptions[0].replace(/-/g, " ");
-    document.getElementById("option2").textContent = currentOptions[1].replace(/-/g, " ");
-  </script>
+  }
+
+  // Populate options on load
+  let currentOptions = getRandomOptions([...adOptions]);
+  document.getElementById("option1").textContent = currentOptions[0];
+  document.getElementById("option2").textContent = currentOptions[1];
+
+  function getRandomOptions(arr) {
+    const shuffled = arr.sort(() => 0.5 - Math.random());
+    return [shuffled[0], shuffled[1]];
+  }
+</script>
 </body>
 </html>
