@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ilikethatworse</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      text-align: center;
+    }
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+    .close-btn {
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      background: none;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+    .image-container {
+      padding: 10px 20px;
+    }
+    .image-container img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+    }
+    .adsense {
+      margin: 20px auto;
+      max-width: 728px;
+    }
+    .return-button, .share-button {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: none;
+      background-color: #222;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <button class="close-btn" onclick="closeAd()">X</button>
+  </div>
+
+  <div class="image-container">
+    <img src="Ai-generated-toothpaste-subscription.png" alt="Ad Poster">
+  </div>
+
+  <div class="adsense">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5073803117143362"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-client="ca-pub-5073803117143362"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <button class="return-button" onclick="closeAd()">Return to Game</button>
+  <button class="share-button" onclick="shareAd()">Share</button>
+
+  <script>
+    function closeAd() {
+      window.location.href = "/sponsored";
+    }
+    function shareAd() {
+      const text = "I like AI generated toothpaste subscriptions worse. Play ilikethatworse — now on the App Store! https://apps.apple.com/us/app/ilikethatworse/id6741214011";
+      if (navigator.share) {
+        navigator.share({
+          title: "ilikethatworse",
+          text: text,
+          url: window.location.href
+        }).catch(err => console.log("Share failed:", err));
+      } else {
+        alert("Copy this to share: " + text);
+      }
+    }
+  </script>
+</body>
+</html>
