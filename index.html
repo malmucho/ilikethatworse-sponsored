@@ -135,16 +135,14 @@
       const shuffled = arr.sort(() => 0.5 - Math.random());
       return [shuffled[0], shuffled[1]];
     }
-
-function slugify(text) {
-  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-}
-
-const selected = slugify(document.getElementById("option" + (index + 1)).textContent);
-window.location.href = "./" + selected + ".html";
-
+    
+    function slugify(text) {
+      return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     }
-
+    const selected = slugify(document.getElementById("option" + (index + 1)).textContent);
+    window.location.href = "./" + selected + ".html";
+    }
+    
     // Populate options on load
     currentOptions = getRandomOptions([...adOptions]);
     document.getElementById("option1").textContent = currentOptions[0].replace(/-/g, " ");
